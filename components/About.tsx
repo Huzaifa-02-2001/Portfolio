@@ -55,7 +55,7 @@ export default function About() {
       
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-20">
-          <p className="font-mono text-indigo-400 text-sm mb-4 tracking-widest uppercase">About Me</p>
+          <p className="font-sans text-indigo-400 text-6xl font-bold mb-4 tracking-widest uppercase">About Me</p>
           <h2 className="text-4xl md:text-5xl font-bold text-zinc-100">
             The Developer Behind the Code
           </h2>

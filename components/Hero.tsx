@@ -1,6 +1,9 @@
-'use client';
+"use client";
 import gsap from 'gsap';
 import { useEffect, useRef } from 'react';
+import Shuffle from './Shuffle';
+import DotGrid from './DotGrid';
+
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
@@ -46,15 +49,26 @@ export default function Hero() {
     <section 
       ref={heroRef}
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center  justify-center overflow-hidden"
     >
       {/* Background */}
       <div className="hero-bg absolute inset-0 bg-[#0a0a0f]">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/20 via-[#0a0a0f] to-[#0a0a0f]" />
+      <DotGrid
+    dotSize={10}
+    gap={15}
+    baseColor="#0a0a0f"
+    activeColor="#5227FF"
+    proximity={120}
+    shockRadius={250}
+    shockStrength={5}
+    resistance={750}
+    returnDuration={1.5}
+  />
+        {/* <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/20 via-[#0a0a0f] to-[#0a0a0f]" />
         <div className="hero-glow absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" />
         
-        {/* Grid Pattern */}
+       
         <div 
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -62,29 +76,49 @@ export default function Hero() {
                              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
             backgroundSize: '60px 60px'
           }}
-        />
-      </div>
+        />*/}
+      </div> 
+
+     
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-5xl">
         <p className="font-mono text-indigo-400 text-md mb-6    tracking-widest uppercase">
-          <span className='border rounded-full px-7 py-1'>Fullstack Developer</span>
+          <span className='border rounded-full px-7 py-1'>Welcome</span>
         </p>
         
         <h1 
           ref={titleRef}
-          className="text-6xl md:text-8xl font-bold mb-6 leading-tight"
+          className="text-5xl md:text-8xl max-md:text-left font-bold mb-6 leading-tight"
         >
-          <span className="text-zinc-100 md:text-6xl">I'm Muhammad Huzaifa</span>
+          <span className="text-zinc-100 md:text-6xl ">I'm  </span>
+        
+      <Shuffle
+  text="Muhammad Huzaifa"
+  shuffleDirection="right"
+  duration={1.5}
+  animationMode="evenodd"
+  shuffleTimes={1}
+  ease="power3.out"
+  stagger={0.03}
+  threshold={0.1}
+  triggerOnce={true}
+  triggerOnHover
+  respectReducedMotion={true}
+  loop={true}
+  loopDelay={5}
+/>
+    
+          
           <br />
-          <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+          <span className="max-md:text-3xl bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
             Full Stack Developer
           </span>
         </h1>
         
         <p 
           ref={subtitleRef}
-          className="text-xl md:text-2xl text-zinc-400 max-w-2xl mx-auto mb-12 leading-relaxed"
+          className="text-lg max-md:text-left md:text-2xl text-zinc-400 max-w-2xl mx-auto mb-12 leading-relaxed"
         >
           I craft elegant solutions at the intersection of design and technology, 
           transforming complex problems into seamless user experiences.
@@ -108,7 +142,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="scroll-indicator absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+      <div className="scroll-indicator absolute max-md:hidden bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
         <span className="text-zinc-500 text-xs font-mono">Scroll</span>
         <div className="w-6 h-10 border-2 border-zinc-700 rounded-full flex justify-center pt-2">
           <div className="w-1 h-2 bg-indigo-500 rounded-full animate-bounce" />
